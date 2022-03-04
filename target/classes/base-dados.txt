@@ -1,0 +1,10 @@
+Maria Fernanda Melo;1920-05-02;4;2;True;Farmaceutico;36.042.179/0001-97;28414;(89) 3901-0349;Costa Rica;
+Anthony Pinto;1924-09-02;0;2;True;Autônomo;10.789.465/0001-27;77319;(53) 3842-0597;Jibuti;
+Maysa Aragão;1920-04-22;2;3;True;Padeiro;38.690.427/0001-31;52908;(36) 3127-0226;Suazilândia;
+Esther Mendes;2011-07-14;3;2;False;Gerente;567.931.428-28;2250;;Guiana;
+Pedro Miguel Fernandes;1947-04-21;3;4;False;Artista;831.905.426-51;47288;(72) 3815-5629;Japão;
+Levi Gomes;1953-09-27;1;2;False;Enfermeiro;152.849.037-14;3045;(29) 3000-7562;Monserrate;
+Sophie da Paz;1907-08-17;4;2;False;Gerente;758.203.169-59;2645;(41) 3266-3858;Usbequistão;
+Lucca Almeida;2000-12-26;0;3;False;Administrador;835.942.016-51;86877;;Moldávia;
+Marcos Vinicius da Rosa;1999-09-03;4;1;False;Médico;021.694.837-13;5924;(07) 3752-2393;Gana;
+Luiza Mendes;2012-08-21;4;2;True;Jornalista;72.681.309/0001-03;4808;(14) 3703-7387;Butão;
