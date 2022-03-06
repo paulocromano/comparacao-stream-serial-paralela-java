@@ -22,18 +22,15 @@ public class PessoaRepository {
 	private static List<Pessoa> pessoas = null;
 	
 	
-	public PessoaRepository() {
+	public static List<Pessoa> getPessoas() {
 		if (Objects.isNull(pessoas)) 
 			gerarListaDePessoas();
-	}
-	
-	
-	public static List<Pessoa> getPessoas() {
+		
 		return pessoas;
 	}
 
 
-	private void gerarListaDePessoas() {
+	private static void gerarListaDePessoas() {
 		try {
 			final String FILE_PATH = "src\\main\\resources\\base-dados.txt";
 			
@@ -59,7 +56,7 @@ public class PessoaRepository {
 		}
 	}
 	
-	private Pessoa extrairDadosDaPessoaDoArquivo(String dadosPessoa) {
+	private static Pessoa extrairDadosDaPessoaDoArquivo(String dadosPessoa) {
 		final String SEPARADOR_DADOS = ";";
 		String[] dadosPessoais = dadosPessoa.split(SEPARADOR_DADOS);
 		int indiceDadosPessoais = 0;
@@ -82,7 +79,7 @@ public class PessoaRepository {
 		return pessoaBuilder.build();
 	}
 	
-	private LocalDate converterDataNascimentoParaLocalDate(String dataNascimento) {
+	private static LocalDate converterDataNascimentoParaLocalDate(String dataNascimento) {
 		return LocalDate.parse(dataNascimento, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 	}
 }
