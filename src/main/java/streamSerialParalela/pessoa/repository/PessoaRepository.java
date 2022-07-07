@@ -28,6 +28,10 @@ public class PessoaRepository {
 		
 		return pessoas;
 	}
+	
+	public static void limparLista() {
+		pessoas = null;
+	}
 
 
 	private static void gerarListaDePessoas() {

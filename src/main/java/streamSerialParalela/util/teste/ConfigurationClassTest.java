@@ -8,5 +8,5 @@ public interface ConfigurationClassTest {
 	public void setTipoStream(TipoStream tipoStream);
 	public void setTamanhoBaseDeDados(TamanhoBaseDeDados tamanhoBaseDeDados);
 	public void configure();
-	public void reconfigureForNextTest();
+	public default void reconfigureForNextTest() { }
 }

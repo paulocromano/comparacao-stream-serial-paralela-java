@@ -4,6 +4,8 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 import org.reflections.Reflections;
@@ -13,6 +15,8 @@ import streamSerialParalela.util.teste.enums.TamanhoBaseDeDados;
 import streamSerialParalela.util.teste.enums.TipoStream;
 
 public class InitializerTests {
+	
+	private static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
 
 	public static void run(@NonNull TipoStream tipoStream, @NonNull TamanhoBaseDeDados tamanhoBaseDeDados) {
 		Reflections reflections = new Reflections("");
@@ -27,6 +31,7 @@ public class InitializerTests {
         			for (Method method : classe.getMethods()) {
         				if (method.isAnnotationPresent(Test.class) && method.getAnnotation(Test.class).enable() == true) {
         					validMethod(method);
+        					System.out.println(timeFormatter.format(LocalTime.now()));
         					method.invoke(classTest);
         					configurationClassTest.reconfigureForNextTest();
         				}
@@ -79,6 +84,6 @@ public class InitializerTests {
 		
 		if (method.getParameterCount() != 0) 
 			throw new IllegalArgumentException("O método '" + method.toString() 
-				+ "' não deve posuir parâmetros!");
+				+ "' não deve possuir parâmetros!");
 	}
 }
