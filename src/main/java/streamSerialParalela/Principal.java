@@ -14,7 +14,7 @@ public class Principal {
 		TamanhoBaseDeDados tamanhoBaseDeDados = TamanhoBaseDeDados.CEM_MIL;
 		
 		TesteStreamPessoa testeStreamPessoa = new TesteStreamPessoa(tipoStream, tamanhoBaseDeDados);
-		testeStreamPessoa.configure();
+		testeStreamPessoa.configurar();
 		
 		System.out.println(DateTimeFormatter.ofPattern("HH:mm:ss.SSS").format(LocalTime.now()));
 		testeStreamPessoa.agruparMediaSalarialDePessoasPorPais();

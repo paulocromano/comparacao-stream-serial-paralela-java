@@ -9,17 +9,18 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import lombok.Getter;
 import lombok.Setter;
 import streamSerialParalela.pessoa.enums.EstadoCivil;
 import streamSerialParalela.pessoa.model.Pessoa;
 import streamSerialParalela.pessoa.repository.PessoaRepository;
-import streamSerialParalela.util.teste.ConfigurationClassTest;
 import streamSerialParalela.util.teste.enums.TamanhoBaseDeDados;
 import streamSerialParalela.util.teste.enums.TipoStream;
 
+@Getter
 @Setter
 @SuppressWarnings("unused")
-public class TesteStreamPessoa implements ConfigurationClassTest {
+public class TesteStreamPessoa {
 	
 	private TipoStream tipoStream;
 	private TamanhoBaseDeDados tamanhoBaseDeDados;
@@ -32,8 +33,7 @@ public class TesteStreamPessoa implements ConfigurationClassTest {
 		this.tamanhoBaseDeDados = tamanhoBaseDeDados;
 	}
 
-	@Override
-	public void configure() {
+	public void configurar() {
 		if (tipoStream.equals(TipoStream.SERIAL))  {
 			baseStreamPessoa = PessoaRepository.getPessoas()
 					.stream()
@@ -47,11 +47,7 @@ public class TesteStreamPessoa implements ConfigurationClassTest {
 		
 		PessoaRepository.limparLista();
 	}
-	
-	@Override
-	public void reconfigureForNextTest() {
-		configure();
-	}
+
 	
 	public void buscarMaiorSalarioDePessoasJuridicasCasadasPorPais() {
 		Map<String, Optional<Pessoa>> collect = baseStreamPessoa
@@ -62,7 +58,7 @@ public class TesteStreamPessoa implements ConfigurationClassTest {
 	}
 	
 	public void filtrarPessoasPeloSalario() {
-		List<Pessoa> collect = baseStreamPessoa
+		List<Pessoa> pessoas = baseStreamPessoa
 				.filter(pessoa -> pessoa.getSalario() > 2000)
 				.collect(Collectors.toList());
 	}
@@ -73,7 +69,7 @@ public class TesteStreamPessoa implements ConfigurationClassTest {
 	}
 	
 	public void agruparMediaSalarialDePessoasPorPais() {
-		Map<String, Double> mediaSalarialPorPais = baseStreamPessoa
+		Map<String, Double> mediaSalarialDePessoasPorPais = baseStreamPessoa
 			.collect(Collectors.groupingBy(Pessoa::getPaisDeOrigem, 
 					Collectors.averagingInt(Pessoa::getSalario)));
 	}

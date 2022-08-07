@@ -2,6 +2,7 @@ package streamSerialParalela.pessoa.model;
 
 import java.time.LocalDate;
 
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import streamSerialParalela.pessoa.enums.Etnia;
 @Getter
 @Setter
 @Builder
-@AllArgsConstructor
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @ToString
 public class Pessoa {
 	
